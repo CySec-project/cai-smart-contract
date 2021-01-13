@@ -1,2 +1,2 @@
-# CarInsurance
+# CAISmartContract
 Smart Contract for CarInsurance
