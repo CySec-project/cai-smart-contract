@@ -1,12 +1,15 @@
 # SMART-CAI
-A **smart contract** based system that automates European *Accident Statements*. Car accidents that do not need a justice involvement between parties.
+A **smart contract** based system that automates *European Accident Statements*, special car accidents that do not need a justice involvement between parties (no injured).
 
 ## Smart contract clients
 The *clients* are registered in the state of the smart contract by transactions.They are divided in **users classes**. More specifically they can access to some specific method according to the **minimality of rights** principle.
-The system is divided in two different smart contract based on the *Solidity language*
 1. **Insurers**
 2. **Drivers**
 3. **Car sensors**
+
+The system is divided in two different smart contract based on the *Solidity* language:
+- Event Contract
+- Accident Contract
 
 
 ## Event Contract
