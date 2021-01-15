@@ -1,2 +1,2 @@
 # cai-smart-contract
-Smart Contract for CarInsurance
+A smart contract system-based for automatic handling European Accident Statements.
