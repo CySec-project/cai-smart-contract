@@ -106,7 +106,7 @@ contract Event {
        insurers[msg.sender] = Insurer(msg.sender, name, email);
     }
     function newSensor() public {
-       sensor[msg.sender] = true;
+       sensors[msg.sender] = true;
     }
 
     function addCar(uint256 idCar, Owner memory owner, string memory model) public returns(uint256 id){
