@@ -105,8 +105,11 @@ contract Event {
        insurersToBool[msg.sender] = true;
        insurers[msg.sender] = Insurer(msg.sender, name, email);
     }
+    function newSensor() public {
+       sensor[msg.sender] = true;
+    }
 
-    function newCar(uint256 idCar, Owner memory owner, string memory model) public returns(uint256 id){
+    function addCar(uint256 idCar, Owner memory owner, string memory model) public returns(uint256 id){
        require(containsInsurer());
        id = idCar;
        Insurer memory ins = insurers[msg.sender];
