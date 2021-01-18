@@ -57,10 +57,6 @@ contract AccidentContract {
     //insurer, it can be only be accessed by who possesses the id of the insurer.
     mapping(address => Accident[]) private insurerToAccident;
     
-    //It is a variable that contains the address of another contract that 
-    //saves useful informations about the parties involved.
-    address contractAddress;
-    
     //The contract that records the informations of the events of the cars
     //that registered in the blockchain. These informations are sended by
     //specific sensors that are aware of predefined events.
