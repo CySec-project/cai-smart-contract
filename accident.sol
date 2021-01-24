@@ -75,14 +75,14 @@ contract AccidentContract {
     //contractStopped is set to true by the owner
     modifier haltInEmergency {
          require(!contractStopped);
-    _;     
+         _;     
     }
     
     //A modifier for the toggleContractStopped function, it stops them when the variable
     //the msg.sender is not the owner
     modifier onlyOwner {
-      require(msg.sender == owner);
-      _;
+         require(msg.sender == owner);
+         _;
 
     //This method initialize the contract, it creates another contract and
     //keeps its reference. It contains some useful informations and methods
