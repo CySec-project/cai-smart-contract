@@ -61,10 +61,19 @@ contract AccidentContract {
     //that registered in the blockchain. These informations are sended by
     //specific sensors that are aware of predefined events.
     Event e;
+
+    //A variable that represents the state of the contract:
+    //if it is false it is working correctly otherwise it is stopped
+    bool public contractStopped = false;
     
     
     //--------------------------FUNCTIONALITES----------------------------------------------------
-
+    
+    //A modifier for the most critical function, it stops them when the variable
+    //contractStopped is set to true by the owner
+    modifier haltInEmergency {​​​​
+         require(!contractStopped);
+    }​​​​
 
     //This method initialize the contract, it creates another contract and
     //keeps its reference. It contains some useful informations and methods
@@ -73,6 +82,17 @@ contract AccidentContract {
          //Create a new smart contract event
          e = new Event();
     }
+
+
+    //It is called only by the owner that is the creator of the contract
+    //whenever a possible bug or a byzantine beheaviour are found
+    //It allows the owner to stop the invocations of the critical functions
+    function toggleContractStopped() public onlyOwner {​​​​
+        //Change the value of the variable: if it was false it becomes true
+        //otherwise it becomes false
+        contractStopped =! contractStopped;
+    }​​​​
+
 
     //It creates a new driver by adding its informations in the blockchain.
     //When the driver is involved in a car accident, the insurer of the 
@@ -102,7 +122,7 @@ contract AccidentContract {
     //involved in the crash. The function creates an accident and adds it to 
     //the blockchain, it also send a notification to the insures of the cars involved,
     //alerting them to go check the data of the crash.
-    function reportCrash(uint256 idMacchina1, uint256 idMacchina2, address driver2) public {
+    function reportCrash(uint256 idMacchina1, uint256 idMacchina2, address driver2) public haltInEmergency {
          //It checks whether the sender address is a driver, 
          //only drivers can report car accidents, 
          //if it is not a driver the code does not go on
