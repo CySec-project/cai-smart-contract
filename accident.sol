@@ -78,6 +78,8 @@ contract AccidentContract {
     _;     
     }
     
+    //A modifier for the toggleContractStopped function, it stops them when the variable
+    //the msg.sender is not the owner
     modifier onlyOwner {
       require(msg.sender == owner);
       _;
@@ -95,11 +97,11 @@ contract AccidentContract {
     //It is called only by the owner that is the creator of the contract
     //whenever a possible bug or a byzantine beheaviour are found
     //It allows the owner to stop the invocations of the critical functions
-    function toggleContractStopped() public onlyOwner {​​​​
+    function toggleContractStopped() public onlyOwner {
         //Change the value of the variable: if it was false it becomes true
         //otherwise it becomes false
         contractStopped =! contractStopped;
-    }​​​​
+    }
 
 
     //It creates a new driver by adding its informations in the blockchain.
