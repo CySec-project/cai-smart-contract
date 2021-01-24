@@ -66,14 +66,21 @@ contract AccidentContract {
     //if it is false it is working correctly otherwise it is stopped
     bool public contractStopped = false;
     
+    address owner;
+    
     
     //--------------------------FUNCTIONALITES----------------------------------------------------
     
     //A modifier for the most critical function, it stops them when the variable
     //contractStopped is set to true by the owner
-    modifier haltInEmergency {​​​​
+    modifier haltInEmergency {
          require(!contractStopped);
-    }​​​​
+    _;     
+    }
+    
+    modifier onlyOwner {
+      require(msg.sender == owner);
+      _;
 
     //This method initialize the contract, it creates another contract and
     //keeps its reference. It contains some useful informations and methods
@@ -81,6 +88,7 @@ contract AccidentContract {
     constructor(){
          //Create a new smart contract event
          e = new Event();
+         owner=msg.sender;
     }
 
 
