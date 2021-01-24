@@ -6,7 +6,7 @@ The blockchain technology is born to make transactions possible among untrusted 
 **SMART-CAI** is a system that is able to handle car accident reports using the **Ethereum** platform.
 
 ## Smart contract clients
-The *clients* are registered in the state of the smart contract by transactions. They are divided in **user classes**. More specifically, they can access to some specific smart contract functionalities according to the **minimality of rights** principle. The main clients are: 
+The *clients* are registered in the state of the smart contract by transactions. They are divided in **user classes**. More specifically, they can access to some specific smart contract functionalities according to the **minimality of rights** principle (Role based access control). The main clients are: 
 1. **Insurers**
 2. **Drivers**
 3. **Car sensors**
