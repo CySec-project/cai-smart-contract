@@ -6,7 +6,7 @@ import '/CarInsurance/blockchain2emailAPI.sol';
 
 
 ///@title A contract that reports the car accidents to the insurers
-contract AccidentContract {
+contract Accident {
         
     //-------------------------DATA STRUCTURES----------------------------------------------------
 
@@ -83,7 +83,8 @@ contract AccidentContract {
     modifier onlyOwner {
          require(msg.sender == owner);
          _;
-
+     }
+     
     //This method initialize the contract, it creates another contract and
     //keeps its reference. It contains some useful informations and methods
     //that are used by this contract
@@ -225,4 +226,3 @@ contract AccidentContract {
     
     
     
-}
